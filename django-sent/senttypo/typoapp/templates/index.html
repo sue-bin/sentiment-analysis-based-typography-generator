@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<html>
+    {% load static %}
+<head>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>Senti-Typo</title>
+</head>
+<style>
+    h1 {
+        text-align: left;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 20px;
+    }
+</style>
+<br>
+<h1 class="mt-5 mb-5">텍스트 입력</h1>
+<form method="post">
+    {% csrf_token %}
+    <input type="text" name="translate" required>
+    <input type="submit" value="OK">
+</form>
+<br>
+<br>
+Translated text: {{trans_text}}
+<br>
+Defined Sentiment: {{emotion}}
+</body>
+
+</html>
