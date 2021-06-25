@@ -30,5 +30,4 @@ def sentence_to_image(sentence, emotion, save_directory):
     entire_image.save(save_directory,"PNG",quality=95)
     
     
-    
     return save_directory

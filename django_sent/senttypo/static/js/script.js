@@ -15,6 +15,5 @@ window.addEventListener('scroll', function () {
 });
 
 
-//window.location.href = 'senttypo/typoapp/views.py';
 
 

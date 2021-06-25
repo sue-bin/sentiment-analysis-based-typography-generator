@@ -53,12 +53,6 @@ section img
   object-fit: cover;
   pointer-events: none;
 }
-#small {
-  position: relative;
-  color:white;
-  font-size: 1em;
-  z-index: 1;
-}
 #text
 {
   position: relative;
@@ -88,6 +82,10 @@ input[type=text], select, textarea{
   opacity: 2s ease-in;
 }
 
+input[type=submit] {
+  display: none;
+
+}
 
 ::placeholder{
   color:white;

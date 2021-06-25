@@ -8,8 +8,6 @@ from sentiment import sentiment
 from sent import sentence_to_image
 
 
-def load(request):
-    return render(request, 'index2.html')
 
 def ko_sentiment(request):
     trans = ''
@@ -19,7 +17,7 @@ def ko_sentiment(request):
     if request.method == "POST":
         txt = request.POST['translate']
 
-        # global trans
+    
         
         trans = ko_papago(txt)
         emotion = sentiment(trans)
