@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<html>
+{% load static %}
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/loading.css' %}">
+    <title>감성 타이포그라피</title>
+</head>
+
+<body>
+    <section>
+        <img src="{% static 'img/bg.jpg' %}" id="bg">
+        <img src="{% static 'img/moon.png' %}" id="moon">
+        <img src="{% static 'img/mountain.png' %}" id="mountain">
+        <img src="{% static 'img/road.png' %}" id="road">
+        <script type="text/javascript"></script>
+
+        {% if trans_text == '' %}
+        <h2 id="text">지금 써보러 갑니다</h2>
+        {% else %}
+        <h2 id="text">폰트 생성</h2>
+        {% endif %}
+    </section>
+
+
+    <container>
+        <style>
+
+        </style>
+        <img src="{% static 'img/output.png' %}" />
+    </container>
+
+
+
+    {% block content %}
+    {% endblock content %}
+    <script type="text/javascript" src="{% static 'js/script.js' %}"></script>
+    {% block javascript %}
+    {% endblock javascript %}
+
+
+
+</body>
+
+</html>

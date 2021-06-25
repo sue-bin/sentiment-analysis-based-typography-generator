@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+
+<html>
+{% load static %}
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <title>감성 타이포그라피</title>
+</head>
+
+<body>
+    <section>
+        <img src="{% static 'img/bg.jpg' %}" id="bg">
+        <img src="{% static 'img/moon.png' %}" id="moon">
+        <img src="{% static 'img/mountain.png' %}" id="mountain">
+        <img src="{% static 'img/road.png' %}" id="road">
+        <script type="text/javascript"></script>
+
+        {% if trans_text == '' %}
+        <h2 id="text">지금 써보러 갑니다</h2>
+        {% else %}
+        <h2 id="text">감정 생성</h2>
+        {% endif %}
+
+    </section>
+
+
+    <form method="post">
+        {% csrf_token %}
+        {% if trans_text == '' %}
+        <input type="text" placeholder="텍스트 입력" tabindex="0"
+            style=" background-color: #031625; font-size: 3em; color: white; font-weight: 800; outline: none"
+            name="translate" required>
+        <input type="submit" value="" onclick="typeWriter()" style="font-size: 5em">
+        {% else %}
+
+        {% endif %}
+    </form>
+
+    <div>
+        {% if trans_text == '' %}
+
+        {% else %}
+        {% load static %}
+        <br>
+        <p>
+            입력 텍스트: {{text}}
+            <br>
+            번역 문장: {{trans_text}}
+            <br>
+            감정 분석: {{emotion}}
+            <br>
+
+        <form action="{% url 'typoapp:show_mc' %}" method="POST" enctype="multipart/form-data" class="form-horizontal">
+            {% csrf_token %}
+            <button type=input name="trans_text" name="emotion"> 폰트 생성
+            </button>
+        </form>
+        {% endif %}
+
+
+        </p>
+
+
+    </div>
+
+
+
+    {% block content %}
+    {% endblock content %}
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript" src="{% static 'js/script.js' %}"></script>
+    {% block javascript %}
+    {% endblock javascript %}
+
+
+
+</body>
+
+</html>
